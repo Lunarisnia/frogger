@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://6t5j27fwdse0"]
+
+[ext_resource type="PackedScene" uid="uid://1otsiqo0n7lv" path="res://src/Obstacles/car.tscn" id="1_k24sq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8miy"]
+size = Vector2(62, 44)
+
+[node name="Car" instance=ExtResource("1_k24sq")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(32, 138, 62, 44)
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_o8miy")

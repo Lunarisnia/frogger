@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2r5s0o3j536l"]
+
+[ext_resource type="PackedScene" uid="uid://ckaleq7qexh61" path="res://src/Obstacles/log_01.tscn" id="1_x18ho"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yivs"]
+size = Vector2(109, 64)
+
+[node name="log_02" instance=ExtResource("1_x18ho")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_7yivs")
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(72, 76, 109, 40)

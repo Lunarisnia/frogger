@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://1otsiqo0n7lv"]
+
+[ext_resource type="Script" path="res://src/Obstacles/moving_obstacle.gd" id="1_h21tg"]
+[ext_resource type="Texture2D" uid="uid://kamcjnoox2o" path="res://Assets/cars.png" id="2_dcane"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw2d5"]
+size = Vector2(64, 48)
+
+[node name="Car" type="StaticBody2D"]
+z_index = 1
+script = ExtResource("1_h21tg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("2_dcane")
+region_enabled = true
+region_rect = Rect2(32, 72, 64, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kw2d5")

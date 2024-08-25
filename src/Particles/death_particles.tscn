@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://crj0bq6hofrlm"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sagq1"]
+particle_flag_disable_z = true
+radial_velocity_min = 75.27
+radial_velocity_max = 107.53
+gravity = Vector3(0, 0, 0)
+scale_max = 5.0
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_sagq1")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0

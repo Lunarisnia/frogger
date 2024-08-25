@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckaleq7qexh61"]
+
+[ext_resource type="Script" path="res://src/Obstacles/steppable_obstacle.gd" id="1_a3oxp"]
+[ext_resource type="Texture2D" uid="uid://d4dteijdoi3v7" path="res://Assets/logs.png" id="2_me3av"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4ugr"]
+size = Vector2(233, 64)
+
+[node name="log_01" type="StaticBody2D"]
+script = ExtResource("1_a3oxp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_j4ugr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("2_me3av")
+region_enabled = true
+region_rect = Rect2(8, 12, 233, 40)

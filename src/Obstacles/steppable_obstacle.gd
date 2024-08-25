@@ -1,0 +1,3 @@
+extends MovingObstacle
+class_name SteppableObstacle
+

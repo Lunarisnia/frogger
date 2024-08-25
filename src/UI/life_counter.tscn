@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfuwciyfy844m"]
+
+[ext_resource type="Texture2D" uid="uid://by5pucyaajmwf" path="res://Assets/frog-icon.png" id="1_ku2dq"]
+[ext_resource type="Script" path="res://src/UI/life_counter.gd" id="1_louux"]
+
+[node name="LifeCounter" type="Control" node_paths=PackedStringArray("lifes")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_louux")
+lifes = [NodePath("Life01"), NodePath("Life02"), NodePath("Life03")]
+metadata/_edit_group_ = true
+
+[node name="Life01" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 40.0
+offset_bottom = -88.0
+grow_vertical = 0
+texture = ExtResource("1_ku2dq")
+
+[node name="Life02" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -128.0
+offset_right = 80.0
+offset_bottom = -88.0
+grow_vertical = 0
+texture = ExtResource("1_ku2dq")
+
+[node name="Life03" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = -128.0
+offset_right = 120.0
+offset_bottom = -88.0
+grow_vertical = 0
+texture = ExtResource("1_ku2dq")

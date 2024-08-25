@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxt2cvb1hs4v2"]
+
+[ext_resource type="Texture2D" uid="uid://bia56u34f8b7f" path="res://Assets/turtles.png" id="2_b2mcu"]
+[ext_resource type="Script" path="res://src/Obstacles/living_object.gd" id="2_kjwya"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtlx1"]
+atlas = ExtResource("2_b2mcu")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfl4a"]
+atlas = ExtResource("2_b2mcu")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s64jc"]
+atlas = ExtResource("2_b2mcu")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvcdu"]
+atlas = ExtResource("2_b2mcu")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib8ul"]
+atlas = ExtResource("2_b2mcu")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbcus"]
+atlas = ExtResource("2_b2mcu")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twsuf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtlx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfl4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s64jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvcdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ib8ul")
+}],
+"loop": false,
+"name": &"action",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbcus")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Turtle" type="AnimatedSprite2D"]
+z_index = 1
+texture_filter = 1
+texture_repeat = 1
+sprite_frames = SubResource("SpriteFrames_twsuf")
+animation = &"action"
+script = ExtResource("2_kjwya")

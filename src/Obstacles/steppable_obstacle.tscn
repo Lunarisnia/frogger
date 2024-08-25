@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c10h5mpmag5s1"]
+
+[ext_resource type="Script" path="res://src/Obstacles/moving_obstacle.gd" id="1_si766"]
+
+[node name="SteppableObstacle" type="StaticBody2D"]
+script = ExtResource("1_si766")

@@ -1,0 +1,135 @@
+[gd_scene load_steps=16 format=3 uid="uid://dwvbtdq5r6nmq"]
+
+[ext_resource type="PackedScene" uid="uid://bghfcte4oilw2" path="res://src/Tilemaps/frogger_tilemap.tscn" id="1_e6muj"]
+[ext_resource type="PackedScene" uid="uid://boen33xkjprbh" path="res://src/Actors/player.tscn" id="2_17k5l"]
+[ext_resource type="PackedScene" uid="uid://dfhdd3df78xv7" path="res://src/Obstacles/obstacle_spawner.tscn" id="4_c2e5v"]
+[ext_resource type="PackedScene" uid="uid://ckaleq7qexh61" path="res://src/Obstacles/log_01.tscn" id="4_hojob"]
+[ext_resource type="PackedScene" uid="uid://1otsiqo0n7lv" path="res://src/Obstacles/car.tscn" id="4_qhsvy"]
+[ext_resource type="PackedScene" uid="uid://c8f73jpts628e" path="res://src/Obstacles/car_02.tscn" id="4_qshmy"]
+[ext_resource type="PackedScene" uid="uid://6t5j27fwdse0" path="res://src/Obstacles/car_03.tscn" id="5_aft1b"]
+[ext_resource type="PackedScene" uid="uid://dbu3inoakr332" path="res://src/Obstacles/car_04.tscn" id="6_jewl2"]
+[ext_resource type="PackedScene" uid="uid://b2r5s0o3j536l" path="res://src/Obstacles/log_02.tscn" id="8_2i5yc"]
+[ext_resource type="PackedScene" uid="uid://dbdwvncw6nx5j" path="res://src/Obstacles/turtles.tscn" id="10_nvvsi"]
+[ext_resource type="PackedScene" uid="uid://3mwrq3fhccun" path="res://src/Obstacles/crocodile.tscn" id="11_krsyv"]
+[ext_resource type="PackedScene" uid="uid://cd6optqghsqix" path="res://src/Actors/lily_pad.tscn" id="12_etlan"]
+[ext_resource type="PackedScene" uid="uid://ef7lqekxwiay" path="res://src/Actors/game_manager.tscn" id="13_dvnk1"]
+[ext_resource type="PackedScene" uid="uid://dfuwciyfy844m" path="res://src/UI/life_counter.tscn" id="14_6t7yc"]
+[ext_resource type="PackedScene" uid="uid://ceykjjbdes1mi" path="res://src/UI/score_counter.tscn" id="15_ibdfu"]
+
+[node name="Demo" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_e6muj")]
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_17k5l")]
+z_index = 2
+position = Vector2(288, 800)
+
+[node name="Cars" type="Node" parent="."]
+
+[node name="ObstacleSpawner" parent="Cars" instance=ExtResource("4_c2e5v")]
+position = Vector2(640, 736)
+obstacles = Array[PackedScene]([ExtResource("4_qhsvy"), ExtResource("5_aft1b")])
+obstacle_speed = 200.0
+interval = 1.5
+direction = Vector2(-1, 0)
+
+[node name="ObstacleSpawner2" parent="Cars" instance=ExtResource("4_c2e5v")]
+position = Vector2(-64, 672)
+obstacles = Array[PackedScene]([ExtResource("4_qhsvy"), ExtResource("5_aft1b")])
+obstacle_speed = 150.0
+interval = 2.0
+
+[node name="ObstacleSpawner3" parent="Cars" instance=ExtResource("4_c2e5v")]
+position = Vector2(640, 608)
+obstacles = Array[PackedScene]([ExtResource("4_qshmy"), ExtResource("5_aft1b")])
+obstacle_speed = 300.0
+interval = 2.0
+direction = Vector2(-1, 0)
+
+[node name="ObstacleSpawner4" parent="Cars" instance=ExtResource("4_c2e5v")]
+position = Vector2(-64, 544)
+obstacles = Array[PackedScene]([ExtResource("4_qshmy"), ExtResource("6_jewl2")])
+interval = 4.0
+
+[node name="ObstacleSpawner5" parent="Cars" instance=ExtResource("4_c2e5v")]
+position = Vector2(640, 480)
+obstacles = Array[PackedScene]([ExtResource("4_qhsvy"), ExtResource("5_aft1b")])
+obstacle_speed = 400.0
+interval = 3.0
+direction = Vector2(-1, 0)
+
+[node name="Logs" type="Node" parent="."]
+
+[node name="ObstacleSpawner6" parent="Logs" instance=ExtResource("4_c2e5v")]
+position = Vector2(-128, 352)
+obstacles = Array[PackedScene]([ExtResource("4_hojob"), ExtResource("8_2i5yc")])
+obstacle_speed = 200.0
+interval = 3.0
+
+[node name="ObstacleSpawner7" parent="Logs" instance=ExtResource("4_c2e5v")]
+position = Vector2(704, 288)
+obstacles = Array[PackedScene]([ExtResource("10_nvvsi"), ExtResource("11_krsyv")])
+obstacle_speed = 300.0
+interval = 3.0
+direction = Vector2(-1, 0)
+
+[node name="ObstacleSpawner8" parent="Logs" instance=ExtResource("4_c2e5v")]
+position = Vector2(-128, 224)
+obstacles = Array[PackedScene]([ExtResource("4_hojob"), ExtResource("11_krsyv")])
+obstacle_speed = 150.0
+interval = 4.0
+
+[node name="ObstacleSpawner9" parent="Logs" instance=ExtResource("4_c2e5v")]
+position = Vector2(704, 160)
+obstacles = Array[PackedScene]([ExtResource("8_2i5yc")])
+obstacle_speed = 250.0
+interval = 3.0
+direction = Vector2(-1, 0)
+
+[node name="ObstacleSpawner10" parent="Logs" instance=ExtResource("4_c2e5v")]
+position = Vector2(-128, 96)
+obstacles = Array[PackedScene]([ExtResource("4_hojob")])
+obstacle_speed = 200.0
+interval = 3.0
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(288, 800)
+gizmo_extents = 73.1
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("spawn_point", "player") instance=ExtResource("13_dvnk1")]
+spawn_point = NodePath("../SpawnPoint")
+player = NodePath("../Player")
+metadata/_edit_lock_ = true
+
+[node name="LilyPad" parent="GameManager" instance=ExtResource("12_etlan")]
+position = Vector2(96, 32)
+
+[node name="LilyPad2" parent="GameManager" instance=ExtResource("12_etlan")]
+position = Vector2(224, 32)
+
+[node name="LilyPad3" parent="GameManager" instance=ExtResource("12_etlan")]
+position = Vector2(352, 32)
+
+[node name="LilyPad4" parent="GameManager" instance=ExtResource("12_etlan")]
+position = Vector2(480, 32)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LifeCounter" parent="CanvasLayer" instance=ExtResource("14_6t7yc")]
+
+[node name="ScoreCounter" parent="CanvasLayer" instance=ExtResource("15_ibdfu")]
+
+[connection signal="dead" from="Player" to="GameManager" method="_on_player_dead"]
+[connection signal="moved" from="Player" to="GameManager" method="_on_player_moved"]
+[connection signal="level_restart" from="GameManager" to="GameManager/LilyPad" method="_on_level_restart"]
+[connection signal="level_restart" from="GameManager" to="GameManager/LilyPad2" method="_on_level_restart"]
+[connection signal="level_restart" from="GameManager" to="GameManager/LilyPad3" method="_on_level_restart"]
+[connection signal="level_restart" from="GameManager" to="GameManager/LilyPad4" method="_on_level_restart"]
+[connection signal="life_changed" from="GameManager" to="CanvasLayer/LifeCounter" method="_on_life_changed"]
+[connection signal="respawn" from="GameManager" to="Player" method="_on_game_manager_respawn"]
+[connection signal="score_changed" from="GameManager" to="CanvasLayer/ScoreCounter" method="_on_score_changed"]
+[connection signal="activated" from="GameManager/LilyPad" to="GameManager" method="_on_lily_pad_activated"]
+[connection signal="activated" from="GameManager/LilyPad2" to="GameManager" method="_on_lily_pad_activated"]
+[connection signal="activated" from="GameManager/LilyPad3" to="GameManager" method="_on_lily_pad_activated"]
+[connection signal="activated" from="GameManager/LilyPad4" to="GameManager" method="_on_lily_pad_activated"]
