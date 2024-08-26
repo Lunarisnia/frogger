@@ -8,8 +8,10 @@ gravity = Vector3(0, 0, 0)
 scale_max = 5.0
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
+z_index = 2
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_sagq1")
 lifetime = 0.4
 one_shot = true
 explosiveness = 1.0
+fixed_fps = 60

@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://boen33xkjprbh"]
+[gd_scene load_steps=10 format=3 uid="uid://boen33xkjprbh"]
 
 [ext_resource type="Script" path="res://src/Actors/player.gd" id="1_btpxe"]
 [ext_resource type="PackedScene" uid="uid://crj0bq6hofrlm" path="res://src/Particles/death_particles.tscn" id="2_1sinr"]
 [ext_resource type="Texture2D" uid="uid://ca6kf4g3un077" path="res://Assets/frog.png" id="2_qu8a6"]
+[ext_resource type="AudioStream" uid="uid://b3mjt5obww56k" path="res://Assets/Audio/death.wav" id="3_vjt71"]
+[ext_resource type="AudioStream" uid="uid://bcq1e7u3h2irh" path="res://Assets/Audio/jump.wav" id="4_r35wi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kq510"]
 atlas = ExtResource("2_qu8a6")
@@ -38,6 +40,8 @@ radius = 24.0
 position = Vector2(160, 32)
 script = ExtResource("1_btpxe")
 death_particle = ExtResource("2_1sinr")
+death_audio = ExtResource("3_vjt71")
+jump_audio = ExtResource("4_r35wi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

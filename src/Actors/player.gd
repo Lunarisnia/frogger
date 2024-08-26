@@ -3,9 +3,13 @@ class_name Player
 
 signal dead
 signal moved
+signal play_audio(audio: AudioStream, shift_pitch: bool)
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @export var death_particle: PackedScene
+
+@export var death_audio: AudioStream
+@export var jump_audio: AudioStream
 
 const JUMP_SPEED = 64.0
 const BOTTOM_LIMIT = 800.0
@@ -67,6 +71,7 @@ func _hop():
 	tween = get_tree().create_tween()
 	tween.tween_property(self, "position", target_position, 1.0 / 10).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.play()
+	play_audio.emit(jump_audio, true)
 
 func _drown():
 	is_dead = true
@@ -102,3 +107,4 @@ func _on_dead() -> void:
 	part.global_position = global_position
 	part.show()
 	part.emitting = true
+	play_audio.emit(death_audio, true)

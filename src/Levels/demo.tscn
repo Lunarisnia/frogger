@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dwvbtdq5r6nmq"]
+[gd_scene load_steps=17 format=3 uid="uid://dwvbtdq5r6nmq"]
 
 [ext_resource type="PackedScene" uid="uid://bghfcte4oilw2" path="res://src/Tilemaps/frogger_tilemap.tscn" id="1_e6muj"]
+[ext_resource type="PackedScene" uid="uid://2f3h2cclk2cv" path="res://src/Audios/audio_manager.tscn" id="1_q46np"]
 [ext_resource type="PackedScene" uid="uid://boen33xkjprbh" path="res://src/Actors/player.tscn" id="2_17k5l"]
 [ext_resource type="PackedScene" uid="uid://dfhdd3df78xv7" path="res://src/Obstacles/obstacle_spawner.tscn" id="4_c2e5v"]
 [ext_resource type="PackedScene" uid="uid://ckaleq7qexh61" path="res://src/Obstacles/log_01.tscn" id="4_hojob"]
@@ -17,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://ceykjjbdes1mi" path="res://src/UI/score_counter.tscn" id="15_ibdfu"]
 
 [node name="Demo" type="Node2D"]
+
+[node name="AudioManager" parent="." instance=ExtResource("1_q46np")]
+metadata/_edit_lock_ = true
 
 [node name="Map" parent="." instance=ExtResource("1_e6muj")]
 metadata/_edit_lock_ = true
@@ -122,6 +126,7 @@ position = Vector2(480, 32)
 
 [connection signal="dead" from="Player" to="GameManager" method="_on_player_dead"]
 [connection signal="moved" from="Player" to="GameManager" method="_on_player_moved"]
+[connection signal="play_audio" from="Player" to="AudioManager" method="_on_play_audio"]
 [connection signal="level_restart" from="GameManager" to="GameManager/LilyPad" method="_on_level_restart"]
 [connection signal="level_restart" from="GameManager" to="GameManager/LilyPad2" method="_on_level_restart"]
 [connection signal="level_restart" from="GameManager" to="GameManager/LilyPad3" method="_on_level_restart"]
